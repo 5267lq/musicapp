@@ -28,7 +28,7 @@
         <!-- <swiper-slide v-for="(item, i) in musicList" :key="i"> -->
         <!-- <swiper-slide @click="gotoList" v-for="(item, i) in state.musicList" :key="i"> -->
         <swiper-slide v-for="(item, i) in state.musicList" :key="i">
-          <router-link :to="{ path: '/listview', query:{id:item.id}}">
+          <router-link :to="{ path: '/listview', query: { id: item.id } }">
             <img :src="item.picUrl" :alt="item.name" />
             <div class="name">{{ item.name }}</div>
             <div class="count">
@@ -72,8 +72,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  /*name: "swiperCom",
-  //vue2写法 
+  /* //vue2写法 
   data: function () {
     return {
       musicList: [],
@@ -92,10 +91,6 @@ export default {
       }
       return res;
     }
-  },
-  components: {
-    Swiper,
-    SwiperSlide,
   },
   async mounted() {
     // let res=await axios.get('http://localhost:3000/personalized?limit=10')

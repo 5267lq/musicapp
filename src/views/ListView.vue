@@ -14,17 +14,18 @@ import listviewTop from "../components/listviewTop.vue";
 export default {
   setup() {
     const route = useRoute();
-    let state = reactive({ list: [], playlist: {} });
+    // 添加creator
+    let state = reactive({ list: [], playlist: { creator: {} } });
     onMounted(async () => {
       let id = route.query.id;
       console.log(route);
-      let result = await getPlaylistDetail(id)
-      state.playlist=result.data.playlist
+      let result = await getPlaylistDetail(id);
+      state.playlist = result.data.playlist;
       console.log(result);
     });
-    return{
-        state
-    }
+    return {
+      state,
+    };
   },
   components: {
     listviewTop,
