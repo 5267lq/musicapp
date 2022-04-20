@@ -1,6 +1,7 @@
 <template>
   <div class="listView">
     <listview-top :playlist="state.playlist"></listview-top>
+    <play-list :playlist="state.playlist"></play-list>
   </div>
 </template>
 <script>
@@ -10,12 +11,13 @@ import { onMounted, reactive } from "vue";
 import { useRoute } from "vue-router";
 
 import listviewTop from "../components/listviewTop.vue";
+import playList from "../components/playList.vue";
 
 export default {
   setup() {
     const route = useRoute();
-    // 添加creator
-    let state = reactive({ list: [], playlist: { creator: {} } });
+    // 添加creator //添加tracks
+    let state = reactive({ list: [], playlist: { creator: {}, tracks: [] } });
     onMounted(async () => {
       let id = route.query.id;
       console.log(route);
@@ -29,6 +31,7 @@ export default {
   },
   components: {
     listviewTop,
+    playList,
   },
 };
 </script>

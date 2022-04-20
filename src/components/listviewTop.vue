@@ -95,7 +95,6 @@ export default {
 <style lang="less" scoped>
 .listViewTop {
   width: 7.5rem;
-  height: 6rem;
   padding: 0 0.4rem;
   .bg {
     position: fixed;
