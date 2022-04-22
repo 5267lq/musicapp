@@ -13,6 +13,7 @@ import { useRoute } from "vue-router";
 import listviewTop from "../components/listviewTop.vue";
 import playList from "../components/playList.vue";
 
+import store from '../store/index.js'
 export default {
   setup() {
     const route = useRoute();
@@ -24,6 +25,7 @@ export default {
       let result = await getPlaylistDetail(id);
       state.playlist = result.data.playlist;
       console.log(result);
+      store.commit('setPlaylist',state.playlist.tracks)
     });
     return {
       state,
