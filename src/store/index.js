@@ -20,6 +20,9 @@ export default createStore({
   mutations: {
     setPlaylist: function (state, value) {
       state.playlist = value
+    },
+    setPlayindex:function(state,index){
+      state.playCurrentIndex=index
     }
   },
   actions: {

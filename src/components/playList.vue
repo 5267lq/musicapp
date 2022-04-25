@@ -15,6 +15,7 @@
       </div>
     </div>
     <div class="list">
+      <!-- @click="play(i)"可以直接放在playItem中 -->
       <div class="playItem" v-for="(item, i) in playlist.tracks" :key="i">
         <div class="left">
           <div class="index">{{ i + 1 }}</div>
@@ -32,7 +33,8 @@
           </div>
         </div>
         <div class="right">
-          <svg class="icon" aria-hidden="true">
+          <svg class="icon" aria-hidden="true" @click="play(i)">
+          <!-- <svg class="icon" aria-hidden="true" @click="setPlayindex(i)"> -->
             <use xlink:href="#icon-shipin"></use>
           </svg>
           <svg class="icon" aria-hidden="true">
@@ -44,8 +46,13 @@
   </div>
 </template>
 <script>
+// import { mapMutations } from 'vuex';
+import store from '../store/index.js'
 export default {
   props: ["playlist"],
+  // methods:{
+  //   ...mapMutations(['setPlayindex'])
+  // },
   setup() {
     function changeValue(num) {
       let res = 0;
@@ -60,8 +67,11 @@ export default {
       }
       return res;
     }
+    function play(index){
+      store.commit('setPlayindex',index);
+    }
     return {
-      changeValue,
+      changeValue,play
     };
   },
 };
