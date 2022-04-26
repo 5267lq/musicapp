@@ -18,7 +18,7 @@
         <use xlink:href="#icon-liebiao"></use>
       </svg>
     </div>
-    <play-music v-show="show" :playDetail="playlist[playCurrentIndex]" @back="show=!show"></play-music>
+    <play-music v-show="show" :playDetail="playlist[playCurrentIndex]" @back="show=!show" :playStatus="paused" :play="play"></play-music>
     <audio
       ref="audio"
       :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"
